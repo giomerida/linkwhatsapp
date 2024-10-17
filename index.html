@@ -19,12 +19,57 @@
         <button type="submit">Generar enlace</button>
       </form>
 
-      <div class="link-container">
-        </div>
+  <!-- Contenedor para el enlace generado -->
+  <div class="link-container"></div>
 
+  <!-- Contenedor para el código QR -->
+  <div id="qr-code"></div>
+
+  <script>
+    const form = document.querySelector('form');
+    const linkContainer = document.createElement('div');
+    const linkText = document.createElement('p');
+    const copyButton = document.createElement('button');
+    const qrCodeContainer = document.getElementById('qr-code');
+
+    function copyToClipboard(text) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const phone = document.querySelector('#phone').value;
+      const message = document.querySelector('#message').value;
+      const encodedMessage = encodeURIComponent(message);
+      const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodedMessage}`;
+
+      // Mostrar el enlace generado
+      linkText.innerText = url;
+      linkContainer.innerHTML = '';
+      linkContainer.appendChild(linkText);
+      copyButton.innerText = 'Copiar enlace';
+      copyButton.addEventListener('click', () => {
+        copyToClipboard(url);
+        copyButton.innerText = '¡Copiado!';
+        setTimeout(() => copyButton.innerText = 'Copiar enlace', 2000);
+      });
+      linkContainer.appendChild(copyButton);
+
+      // Generar el código QR usando la API de Google Charts
+      const qrUrl = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(url)}`;
+      qrCodeContainer.innerHTML = `<img src="${qrUrl}" alt="QR Code">`;
+
+      // Agregar el contenedor al formulario
+      form.appendChild(linkContainer);
+    });
+  </script>
 </div>
-
-    <script>
+    <!--<script>
    const form = document.querySelector('form');
 const linkContainer = document.createElement('div');
 const linkText = document.createElement('p');
@@ -64,7 +109,7 @@ form.addEventListener('submit', (e) => {
   // Agrega el contenedor al formulario
   form.appendChild(linkContainer);
 });
-</script>
+</script>-->
 
 <!--Pie de página-->
   <footer class="footer">
