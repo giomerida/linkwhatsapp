@@ -61,6 +61,7 @@
       linkContainer.appendChild(copyButton);
 
     // Generar el código QR usando la API de Google Charts
+    console.log(qrUrl);
     const qrUrl = `https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=${encodeURIComponent(url)}`;
       qrCodeContainer.innerHTML = `<img src="${qrUrl}" alt="QR Code">`;
 
