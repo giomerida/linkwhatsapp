@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     color: #000;
+    background: linear-gradient(to right, #add8e6, #87cefa, #4682b4);
   }
 
   .form-container {
@@ -9,6 +10,11 @@ body {
     justify-content: flex-end;
     align-items: center;
     width: 100%;
+  }
+
+  .titulo{
+    text-align: center;
+    padding: 20px;
   }
 
   form {
@@ -70,4 +76,22 @@ body {
 
   .copy-button:hover {
     background-color: #60a3c5;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
   }
