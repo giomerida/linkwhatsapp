@@ -1,2 +1,3 @@
 # linkwhatsapp
-Generador de links de WhatsApp
+
+Generador de links de WhatsApp con mensaje personalizado.
