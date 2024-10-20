@@ -4,6 +4,7 @@
     <title>Generador de link de WhatsApp</title>
     <!-- Vinculación del archivo CSS externo -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="qrcode.min.js">
     
   </head>
   <body>
@@ -24,7 +25,10 @@
 
     <!-- Contenedor para el código QR -->
     <div id="qr-code"></div>
-    </div>
+  </div>
+
+  <!-- Enlazamos la biblioteca QRCode.js -->
+  <script src="qrcode.min.js"></script>
 
   <script>
     const form = document.querySelector('form');
@@ -61,15 +65,16 @@
       });
       linkContainer.appendChild(copyButton);
 
-      // Limpiar el contenedor del QR antes de agregar el nuevo
-      qrCodeContainer.innerHTML = '';
+      // Generar el código QR usando QRCode.js
+      qrCodeContainer.innerHTML = ''; // Limpiar el contenedor QR si ya tiene uno
+      new QRCode(qrCodeContainer, {
+        text: url,
+        width: 150,
+        height: 150
+      });
 
-      // Generar el código QR usando la API de Google Charts
-      const qrUrl = `https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=${encodeURIComponent(url)}`;
-      const img = document.createElement('img');
-      img.src = qrUrl;
-      img.alt = 'QR Code';
-      qrCodeContainer.appendChild(img);
+      // Agregar el contenedor al formulario
+      form.appendChild(linkContainer);
     });
   </script>
 </div>
