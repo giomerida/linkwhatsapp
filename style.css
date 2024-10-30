@@ -94,8 +94,8 @@ body {
   }
 
   #qr-code img {
-    width: 300px; /* Puedes ajustar el tamaño del código QR */
-    height: 300px;
+    width: 150px; /* Puedes ajustar el tamaño del código QR */
+    height: 150px;
   }
 
   footer a {
