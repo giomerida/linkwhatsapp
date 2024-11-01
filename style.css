@@ -107,3 +107,7 @@ body {
   footer a:hover {
     color: #10398b;
   }
+
+  @media (max-width: 1330px) {
+    
+  }
