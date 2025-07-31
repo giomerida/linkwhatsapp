@@ -38,9 +38,7 @@
 
   <script>
     const form = document.querySelector('form');
-    const linkContainer = document.createElement('div');
-    const linkText = document.createElement('p');
-    const copyButton = document.createElement('button');
+    const linkContainer = document.querySelector('.link-container'); // Usar el contenedor ya existente
     const qrCodeContainer = document.getElementById('qr-code');
 
     function copyToClipboard(text) {
@@ -59,10 +57,17 @@
       const encodedMessage = encodeURIComponent(message);
       const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodedMessage}`;
 
-      // Mostrar el enlace generado
-      linkText.innerText = url;
+      // Limpiar contenedores
       linkContainer.innerHTML = '';
+      qrCodeContainer.innerHTML = '';
+
+      // Mostrar el enlace generado
+      const linkText = document.createElement('p');
+      linkText.innerText = url;
       linkContainer.appendChild(linkText);
+
+      // Botón copiar
+      const copyButton = document.createElement('button');
       copyButton.innerText = 'Copiar enlace';
       copyButton.addEventListener('click', () => {
         copyToClipboard(url);
@@ -71,16 +76,12 @@
       });
       linkContainer.appendChild(copyButton);
 
-      // Generar el código QR usando QRCode.js
-      qrCodeContainer.innerHTML = ''; // Limpiar el contenedor QR si ya tiene uno
+      // Generar el código QR debajo del enlace
       new QRCode(qrCodeContainer, {
         text: url,
         width: 150,
         height: 150
       });
-
-      // Agregar el contenedor al formulario
-      form.appendChild(linkContainer);
     });
   </script>
 </div>
