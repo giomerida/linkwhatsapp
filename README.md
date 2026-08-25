@@ -40,7 +40,7 @@ Herramienta web sencilla y rápida para **generar enlaces directos de WhatsApp (
 
 ### 🏠 Formulario principal
 
-![Formulario](assets/screenshots/formulario.png)
+![Formulario](img/formulario.png)
 
 ### 🔳 Resultado con QR generado
 
