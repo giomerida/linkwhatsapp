@@ -116,7 +116,7 @@ El proyecto está listo para desplegarse directamente en GitHub Pages activando 
 ```
 linkwhatsapp/
 ├── index.html          # Página principal con el formulario generador
-├── css/                # (Sugerido) Hojas de estilo
+├── css/                # Hojas de estilo
 ├── js/                 # (Sugerido) Lógica de generación de link y QR
 └── README.md           # Este archivo
 ```
