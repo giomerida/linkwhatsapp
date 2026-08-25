@@ -44,7 +44,7 @@ Herramienta web sencilla y rápida para **generar enlaces directos de WhatsApp (
 
 ### 🔳 Resultado con QR generado
 
-![Resultado QR](assets/screenshots/resultado-qr.png)
+![Resultado QR](img/resultado_form.png)
 
 ---
 
